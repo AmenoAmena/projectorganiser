@@ -25,13 +25,3 @@ class SignUpForm(UserCreationForm):
         model = User
         fields = ('username','password1','password2')
 
-class project_form(forms.ModelForm):
-    class Meta:
-        model = Project
-        fields = {'link','notes','features'}
-        
-        labels = {
-            'link':'Link',
-            'notes':'Notes',
-            'features':'Features'
-        }
