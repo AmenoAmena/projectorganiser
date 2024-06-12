@@ -1,0 +1,20 @@
+{% extends 'authentication/base.html' %}
+
+{% block title %}
+
+<title>Login Page</title>
+
+{% endblock %}
+
+
+
+{% block body %}
+
+<form method="post">
+    {% csrf_token %}
+    <input type="text" placeholder="Username" id="Username" name="Username" required autocomplete="off">
+    <input type="password" placeholder="Password" id="Password" name="Password" required autocomplete="off">
+    <button type="submit">Login</button>
+</form>
+
+{% endblock %}

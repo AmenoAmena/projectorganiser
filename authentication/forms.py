@@ -11,17 +11,19 @@ class SignUpForm(UserCreationForm):
 
     password1 = forms.CharField(max_length=40,label='Password',widget=forms.TextInput(attrs={
         'placeholder':'password',
-        'autocomplete':'off'
+        'autocomplete':'off',
+        'type':'password',
     }))
 
     password2 = forms.CharField(max_length=40,label='Password Again',widget=forms.TextInput(attrs={
         'placeholder':'password',
         'autocomplete':'off',
+        'type':'password',
     }))
 
     class Meta:
         model = User
-        fields = {'username','password1','password2'}
+        fields = ('username','password1','password2')
 
 class project_form(forms.ModelForm):
     class Meta:
