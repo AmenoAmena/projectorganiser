@@ -1,8 +1,10 @@
 {% extends "projects_shown/base.html" %}
+{% load static %}
 
 {% block title %}
 
 <title>Home page</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/index.css' %}">
 
 {% endblock title %}
 
@@ -14,10 +16,19 @@
 <div class="user"><a href="{% url  'profile' %}">Profile</a></div>
 
 <h2>Projects</h2>
+
+<div class="projects-all">
 {% for p in projects %}
 
-{{p}}
+
+<div class="project-card">
+    <a href="{% url 'projects' project_name=p.name %}">{{forloop.counter}} - {{p.name}}</a>
+</div>
+
 
 {% endfor %}
+
+
+</div>
 
 {% endblock body %}

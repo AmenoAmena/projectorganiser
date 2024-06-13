@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import project_form
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 @login_required
@@ -16,8 +17,11 @@ def index(request):
         'projects':projects,
     })
 
-def project_room(request):
-    pass
+def project_room(request,project_name):
+    project = get_object_or_404(Project,name=project_name)
+    return render(request, 'projects_shown/project.html',{
+        'project':project,
+    })
 
 def profile(request):
     user = request.user
