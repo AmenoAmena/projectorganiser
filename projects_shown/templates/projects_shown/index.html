@@ -11,10 +11,12 @@
 {% block body %}
 
 
-<div class="user"></div>
+<div class="user"><a href="{% url  'profile' %}">Profile</a></div>
 
+<h2>Projects</h2>
 {% for p in projects %}
 
+{{p}}
 
 {% endfor %}
 

@@ -20,4 +20,7 @@ def project_room(request):
     pass
 
 def profile(request):
-    pass
+    user = request.user
+    return render(request, 'projects_shown/profile.html',{
+        'user':user
+    })
