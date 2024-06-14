@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import project_form,add_project_form
 from django.contrib.auth.decorators import login_required
@@ -31,10 +31,13 @@ def profile(request):
 
 def add_project(request):
     form = add_project_form()
+    user = request.user
     if request.method == 'POST':
         form = add_project_form(request.POST)
         if form.is_valid():
-            form.save()
+            project = form.save(commit=False)
+            project.user = user
+            project.save()
             return redirect('index')
     return render(request, 'projects_shown/add.html',{
         'form':form,

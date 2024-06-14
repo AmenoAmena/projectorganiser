@@ -10,7 +10,7 @@ class Feature(models.Model):
         return self.feature_add
 
 class Project(models.Model):
-    name = models.CharField(max_length=80)
+    name = models.CharField(max_length=80,unique=True)
     link = models.URLField()
     notes = models.TextField(blank=True)
     features = models.ForeignKey(Feature,on_delete=models.CASCADE,blank=True,null=True)
