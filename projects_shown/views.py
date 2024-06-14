@@ -31,6 +31,11 @@ def profile(request):
 
 def add_project(request):
     form = add_project_form()
+    if request.method == 'POST':
+        form = add_project_form(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
     return render(request, 'projects_shown/add.html',{
         'form':form,
     })

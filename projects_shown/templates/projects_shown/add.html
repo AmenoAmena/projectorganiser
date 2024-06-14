@@ -1,8 +1,10 @@
 {% extends "projects_shown/base.html"%}
+{% load static %}
 
 {% block title %}
 
 <title>Add</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/add.css' %}">
 
 {% endblock title %}
 
@@ -11,7 +13,9 @@
 {% block body %}
 
     <form method="post">
+        {% csrf_token %}
         {{form.as_p}}
+        <button type="submit">Create</button>
     </form>
 
 {% endblock body %}

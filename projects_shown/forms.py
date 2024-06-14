@@ -15,8 +15,9 @@ class project_form(forms.ModelForm):
 class add_project_form(forms.ModelForm):
     class Meta:
         model = Project
-        fields = {"name"}
+        fields = {"name","link"}
         
         labels = {
-            'name':'Project Name'
+            'name':'Project Name',
+            'link':'Github Link'
         }

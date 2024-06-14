@@ -12,8 +12,8 @@ class Feature(models.Model):
 class Project(models.Model):
     name = models.CharField(max_length=80)
     link = models.URLField()
-    notes = models.TextField()
-    features = models.ForeignKey(Feature,on_delete=models.CASCADE)
+    notes = models.TextField(blank=True)
+    features = models.ForeignKey(Feature,on_delete=models.CASCADE,blank=True,null=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
