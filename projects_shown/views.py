@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import project_form,add_project_form
+from .forms import project_form,add_project_form,feature_add
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project
 from django.shortcuts import get_object_or_404
@@ -20,9 +20,13 @@ def index(request):
 def project_room(request,project_name):
     project = get_object_or_404(Project,name=project_name)
     form =  project_form()
+    features = project.features
+    feature_form = feature_add()
     return render(request, 'projects_shown/project.html',{
         'project':project,
-        'form':form
+        'form':form,
+        'feature_form':feature_form,
+        'features':features,
     })
 
 def profile(request):

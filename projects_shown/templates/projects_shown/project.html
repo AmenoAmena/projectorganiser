@@ -34,10 +34,24 @@
 
     <div class="feature">
         <h2>Features</h2>
-        {{form.features}}
-        <button type="submit">Save</button>
+        <form type="put">
+            {{feature_form.feature_add}}
+            <button type="submit">Add</button>
+        </form>
     </div>
 
 </form>
+
+<div class="feature_show">
+
+    {% for f in features %}
+        {% if f.feature_done == False %}
+            <h3>{{forloop.counter}}-{{f}}</h3>
+        {% else %}
+            <h3>No feature right now</h3>
+        {% endif %}
+    {% endfor %}
+
+</div>
 
 {% endblock body %}

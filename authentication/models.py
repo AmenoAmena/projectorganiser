@@ -13,7 +13,7 @@ class Project(models.Model):
     name = models.CharField(max_length=80,unique=True)
     link = models.URLField()
     notes = models.TextField(blank=True)
-    features = models.ForeignKey(Feature,on_delete=models.CASCADE,blank=True,null=True)
+    features = models.ManyToManyField(Feature, blank=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
 
     def __str__(self):
