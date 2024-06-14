@@ -3,14 +3,14 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Feature(models.Model):
-    feature_add = models.CharField(max_length=80)
+    feature_add = models.CharField(max_length=80,default="Feature")
     feature_done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.feature_add
 
 class Project(models.Model):
-    name = models.CharField(max_length=80,default="Project")
+    name = models.CharField(max_length=80)
     link = models.URLField()
     notes = models.TextField()
     features = models.ForeignKey(Feature,on_delete=models.CASCADE)

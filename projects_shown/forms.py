@@ -12,3 +12,11 @@ class project_form(forms.ModelForm):
             'features':'Features'
         }
         
+class add_project_form(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = {"name"}
+        
+        labels = {
+            'name':'Project Name'
+        }

@@ -13,9 +13,13 @@
 {% block body %}
 
 
-<div class="user"><a href="{% url  'profile' %}">Profile</a></div>
+<div class="user"><h3>{{user.username}}</h3></div>
 
 <h2>Projects</h2>
+
+<div class="add">
+    <a href="{% url 'add' %}">+</a>
+</div>
 
 <div class="projects-all">
 {% for p in projects %}
@@ -29,6 +33,10 @@
 {% endfor %}
 
 
+</div>
+
+<div class="logout">
+    <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
 </div>
 
 {% endblock body %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from .forms import project_form
+from .forms import project_form,add_project_form
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project
 from django.shortcuts import get_object_or_404
@@ -27,4 +27,10 @@ def profile(request):
     user = request.user
     return render(request, 'projects_shown/profile.html',{
         'user':user
+    })
+
+def add_project(request):
+    form = add_project_form()
+    return render(request, 'projects_shown/add.html',{
+        'form':form,
     })
