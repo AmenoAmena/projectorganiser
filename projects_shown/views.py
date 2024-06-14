@@ -42,3 +42,4 @@ def add_project(request):
     return render(request, 'projects_shown/add.html',{
         'form':form,
     })
+

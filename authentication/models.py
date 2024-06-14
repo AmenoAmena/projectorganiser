@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 class Feature(models.Model):
-    feature_add = models.CharField(max_length=80,default="Feature")
+    feature_add = models.CharField(max_length=80)
     feature_done = models.BooleanField(default=False)
 
     def __str__(self):
