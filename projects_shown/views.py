@@ -19,8 +19,10 @@ def index(request):
 
 def project_room(request,project_name):
     project = get_object_or_404(Project,name=project_name)
+    form =  project_form()
     return render(request, 'projects_shown/project.html',{
         'project':project,
+        'form':form
     })
 
 def profile(request):

@@ -21,3 +21,4 @@ class add_project_form(forms.ModelForm):
             'name':'Project Name',
             'link':'Github Link'
         }
+

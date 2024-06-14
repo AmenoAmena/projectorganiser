@@ -1,3 +1,22 @@
 h2 {
     text-align: center;
 }
+
+.link {
+    text-align: center;
+}
+
+.notes {
+    width: 25%;
+    height:auto;
+    overflow: auto;
+    position:absolute;
+    left: 15%;
+    top: 20%;
+    text-align: center;
+}
+
+.notes > textarea {
+    resize: none;
+    height: 40vh;
+}
