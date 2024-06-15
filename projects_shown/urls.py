@@ -8,4 +8,5 @@ urlpatterns = [
     path("add", views.add_project, name='add'),
     path("project/<str:project_name>/<str:feature>", views.add_feature, name="add_feature"),
     path("project/<str:project_name>/features/<int:feature_id>/done",views.done_feature, name = 'feature_done'),
+    path("project/<str:project_name>/features/<int:feature_id>/delete",views.delete_feature, name = "feature_delete"),
 ]

@@ -82,3 +82,12 @@ def done_feature(request,project_name,feature_id):
         feature.save()
 
     return redirect('projects', project_name=project_name)
+
+def delete_feature(request, project_name,feature_id):
+    project = get_object_or_404(Project, name = project_name)
+    feature = get_object_or_404(Feature, pk = feature_id)
+
+    if request.method == 'POST':
+        feature.delete()
+
+    return redirect('projects', project_name=project_name)
