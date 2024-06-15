@@ -76,6 +76,9 @@ def add_feature(request, project_name,feature):
 def done_feature(request,project_name,feature_id):
     project = get_object_or_404(Project, name=project_name)
     feature = get_object_or_404(Feature, pk=feature_id)
-    if request.method == 'PUT':    
-        feature.feature_add.feature_done = True
+    
+    if request.method == 'POST':    
+        feature.feature_done = True
+        feature.save()
+
     return redirect('projects', project_name=project_name)
