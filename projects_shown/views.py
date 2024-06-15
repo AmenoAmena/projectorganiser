@@ -55,7 +55,6 @@ def add_project(request):
 
 def add_feature(request, project_name,feature):
     project = get_object_or_404(Project, name=project_name)
-    feature_form = feature_add()
     
     if request.method == 'POST':
         feature_form = feature_add(request.POST)
@@ -69,3 +68,4 @@ def add_feature(request, project_name,feature):
         feature_form = feature_add()
 
     return redirect('projects', project_name=project_name)
+    
