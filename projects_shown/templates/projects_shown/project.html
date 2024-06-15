@@ -16,19 +16,9 @@
 
 <h2>{{project.name}}</h2>
 
-<form method="put">
-    {% csrf_token %}
     <div class="link">
-        <form method="">
-            {% if project.link == "" %}
-            <label for="{{ form.link.id_for_label }}">{{form.link.label}}:</label>
-            {{form.link}}
-            <button type="submit">Save</button>
-            {% else %}
-                <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
-                </h3>
-            {% endif %}
-        </form>
+        <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
+    </h3>
     </div>
 
     <div class="notes">
@@ -56,10 +46,14 @@
         {% if f.feature_done == False %}
             <div class="feature-item">
                 <h2>{{forloop.counter}}-{{f}}</h2> 
-                <form method="post" >
+                <form method="post" action="{% url 'feature_done' project_name = project.name feature__id=f.id %}">
+                    {% csrf_token %}    
                     <button type="submit" class="done-btn">+</button>
                 </form>
+
+                <form>
                 <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </form>
             </div>
         {% endif %}
     {% endfor %}

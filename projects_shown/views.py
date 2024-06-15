@@ -72,3 +72,10 @@ def add_feature(request, project_name,feature):
         feature_form = feature_add()
 
     return redirect('projects', project_name=project_name)
+
+def done_feature(request,project_name,feature_id):
+    project = get_object_or_404(Project, name=project_name)
+    feature = get_object_or_404(Feature, pk=feature_id)
+    if request.method == 'PUT':    
+        feature.feature_add.feature_done = True
+    return redirect('projects', project_name=project_name)
