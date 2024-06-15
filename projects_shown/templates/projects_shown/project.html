@@ -16,7 +16,7 @@
 
 <h2>{{project.name}}</h2>
 
-<form method="post">
+<form method="put">
     {% csrf_token %}
     <div class="link">
         <form method="">
@@ -25,7 +25,7 @@
             {{form.link}}
             <button type="submit">Save</button>
             {% else %}
-                <h3>Link: <a href="{{ project.link }}">{{project.link}}</a>
+                <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
                 </h3>
             {% endif %}
         </form>
@@ -45,7 +45,8 @@
             {% csrf_token %}
             {{ feature_form.feature_add }}
             <button type="submit">Add</button>
-        </form></div>
+        </form>
+    </div>
 
 </form>
 

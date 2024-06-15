@@ -57,10 +57,12 @@ def add_feature(request, project_name,feature):
     project = get_object_or_404(Project, name=project_name)
     Feature_form = feature_add()
     
+
     if request.method == 'POST':
         Feature_form = feature_add(request.POST)
         if Feature_form.is_valid():
-            feature_name = feature
+            feature_name = Feature_form.cleaned_data['feature_add']
+            print(feature_name)
             new_feature = Feature_form.save(commit= False)
             new_feature.feature_add = feature_name
             new_feature.save()
