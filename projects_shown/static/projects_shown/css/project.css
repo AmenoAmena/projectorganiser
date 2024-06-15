@@ -36,3 +36,43 @@ h2 {
     top: 35%;
     left: 40%;
 }
+
+h3 > a {
+    text-decoration: none;
+    color: black;
+    font-style: italic;
+}
+
+h3 > a:hover {
+    text-decoration: underline;
+    color:darkgrey;
+}
+
+.done_feature {
+    border: 1px solid #000;
+    width: 25%;
+    height:40%;
+    overflow: auto;
+    position: absolute;
+    top: 30%;
+    left: 63%;
+
+}
+
+.done_f {
+    position: absolute;
+    top: 20%;
+    left: 70%;
+}
+
+.feature-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center; 
+    margin-bottom: 10px;
+}
+
+.feature-item h2 {
+    margin-right: 10px;
+}

@@ -20,13 +20,15 @@ def index(request):
 def project_room(request,project_name):
     project = get_object_or_404(Project,name=project_name)
     form =  project_form()
-    features = project.features
+    features = project.features.filter(feature_done = False)
+    features_done = project.features.filter(feature_done = True)
     feature_form = feature_add()
     return render(request, 'projects_shown/project.html',{
         'project':project,
         'form':form,
         'feature_form':feature_form,
         'features':features,
+        'done_features':features_done,
     })
 
 def profile(request):
