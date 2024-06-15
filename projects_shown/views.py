@@ -58,8 +58,8 @@ def add_feature(request, project_name,feature):
     Feature_form = feature_add()
     
     if request.method == 'POST':
-        feature_form = feature_add(request.POST)
-        if feature_form.is_valid():
+        Feature_form = feature_add(request.POST)
+        if Feature_form.is_valid():
             feature_name = feature
             new_feature = Feature_form.save(commit= False)
             new_feature.feature_add = feature_name
