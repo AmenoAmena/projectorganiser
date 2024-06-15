@@ -5,7 +5,6 @@ from django.contrib.auth.models import User
 class Feature(models.Model):
     feature_add = models.CharField(max_length=80)
     feature_done = models.BooleanField(default=False)
-    project = models.ForeignKey(Project,on_delete=models.CASCADE)
 
     def __str__(self):
         return self.feature_add
