@@ -9,6 +9,7 @@ class Feature(models.Model):
     def __str__(self):
         return self.feature_add
 
+
 class Project(models.Model):
     name = models.CharField(max_length=80,unique=True)
     link = models.URLField()

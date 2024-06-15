@@ -66,6 +66,7 @@ def add_feature(request, project_name,feature):
             new_feature = Feature_form.save(commit= False)
             new_feature.feature_add = feature_name
             new_feature.save()
+            project.features.add(new_feature)
             return redirect('projects', project_name=project_name)
     else:
         feature_form = feature_add()
