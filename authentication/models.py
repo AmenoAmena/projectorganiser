@@ -16,6 +16,7 @@ class Project(models.Model):
     notes = models.TextField(blank=True)
     features = models.ManyToManyField(Feature, blank=True)
     user = models.ForeignKey(User,on_delete=models.CASCADE)
+    is_done = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name
