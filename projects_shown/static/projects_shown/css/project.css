@@ -21,6 +21,15 @@ h2 {
     height: 40vh;
 }
 
+.notes > form {
+    
+}
+
+.notes > form > textarea {
+    resize: none;
+    height: 40vh;
+}
+
 .feature {
     position:absolute;
     top: 20%;
@@ -75,4 +84,20 @@ h3 > a:hover {
 
 .feature-item h2 {
     margin-right: 10px;
+}
+
+.home-page {
+    position:absolute;
+    top:5%;
+    left:5%;
+}
+
+.home-page > a {
+    text-decoration: none;
+    color: black;
+}
+
+.home-page > a:hover {
+    text-decoration: underline;
+    color:darkgrey;   
 }

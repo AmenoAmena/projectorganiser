@@ -91,3 +91,13 @@ def delete_feature(request, project_name,feature_id):
         feature.delete()
 
     return redirect('projects', project_name=project_name)
+
+def text_add(request,project_name):
+    project = get_object_or_404(Project, name = project_name)
+
+    if request.method == 'POST':
+        project.notes.add(text)
+        project.save()
+
+    return redirect('projects', project_name=project_name)
+    
