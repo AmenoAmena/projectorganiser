@@ -4,6 +4,7 @@ from .forms import project_form,add_project_form,feature_add
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project
 from django.shortcuts import get_object_or_404
+from django.urls import reverse
 
 # Create your views here.
 @login_required
@@ -50,4 +51,8 @@ def add_project(request):
     return render(request, 'projects_shown/add.html',{
         'form':form,
     })
+
+def add_feature(request, feature):
+    feature = feature
+    return redirect(reverse('projects',project_name = project_name))
 

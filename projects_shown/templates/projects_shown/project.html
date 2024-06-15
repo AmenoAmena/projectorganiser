@@ -41,7 +41,7 @@
 
     <div class="feature">
         <h2>Features</h2>
-        <form type="put">
+        <form type="post" action="{% url 'add_feature' feature = feature_form.feature_add.value %}">
             {{feature_form.feature_add}}
             <button type="submit">Add</button>
         </form>
@@ -55,7 +55,10 @@
         {% if f.feature_done == False %}
             <div class="feature-item">
                 <h2>{{forloop.counter}}-{{f}}</h2> 
-                <button type="submit" class="done-btn">+</button>
+                <form method="post" >
+                    <button type="submit" class="done-btn">+</button>
+                </form>
+                <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
             </div>
         {% endif %}
     {% endfor %}
