@@ -41,11 +41,11 @@
 
     <div class="feature">
         <h2>Features</h2>
-        <form type="post" action="{% url 'add_feature' feature = feature_form.feature_add.value %}">
-            {{feature_form.feature_add}}
+        <form method="post" action="{% url 'add_feature' project_name=project.name feature=feature_form.feature_add.value %}">
+            {% csrf_token %}
+            {{ feature_form.feature_add }}
             <button type="submit">Add</button>
-        </form>
-    </div>
+        </form></div>
 
 </form>
 

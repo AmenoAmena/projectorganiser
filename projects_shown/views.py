@@ -2,9 +2,10 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse
 from .forms import project_form,add_project_form,feature_add
 from django.contrib.auth.decorators import login_required
-from authentication.models import Project
+from authentication.models import Project,Feature
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
+
 
 # Create your views here.
 @login_required
@@ -52,7 +53,19 @@ def add_project(request):
         'form':form,
     })
 
-def add_feature(request, feature):
-    feature = feature
-    return redirect(reverse('projects',project_name = project_name))
+def add_feature(request, project_name,feature):
+    project = get_object_or_404(Project, name=project_name)
+    Feature_form = feature_add()
+    
+    if request.method == 'POST':
+        feature_form = feature_add(request.POST)
+        if feature_form.is_valid():
+            feature_name = feature
+            new_feature = Feature_form.save(commit= False)
+            new_feature.feature_add = feature_name
+            new_feature.save()
+            return redirect('projects', project_name=project_name)
+    else:
+        feature_form = feature_add()
 
+    return redirect('projects', project_name=project_name)
