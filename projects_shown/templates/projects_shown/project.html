@@ -16,9 +16,10 @@
 
 <h2>{{project.name}}</h2>
 
-<form method="put">
+<form method="post">
     {% csrf_token %}
     <div class="link">
+        <form method="">
             {% if project.link == "" %}
             <label for="{{ form.link.id_for_label }}">{{form.link.label}}:</label>
             {{form.link}}
@@ -27,28 +28,26 @@
                 <h3>Link: <a href="{{ project.link }}">{{project.link}}</a>
                 </h3>
             {% endif %}
+        </form>
     </div>
-</form>
 
-<form action="">
     <div class="notes">
         <h2>Notes</h2>
         {{form.notes}}
         <br>
         <button type="submit">Save</button>
     </div>
-</form>
 
-<form method="post" action="{% url 'add_feature' project_name=project.name feature=feature_form.feature_add.value %}">
 
     <div class="feature">
         <h2>Features</h2>
+        <form method="post" action="{% url 'add_feature' project_name=project.name feature=feature_form.feature_add.value %}">
             {% csrf_token %}
             {{ feature_form.feature_add }}
             <button type="submit">Add</button>
-    </div>
-</form>
+        </form></div>
 
+</form>
 
 <div class="feature_show">
 
