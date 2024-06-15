@@ -1,3 +1,7 @@
+* {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h2 {
     text-align: center;
 }
@@ -9,25 +13,20 @@ h2 {
 .notes {
     width: 25%;
     height:auto;
-    overflow: auto;
+    overflow-y: auto;
     position:absolute;
-    left: 15%;
+    left: 10%;
     top: 20%;
     text-align: center;
 }
 
-.notes > textarea {
+
+.text-area {
     resize: none;
     height: 40vh;
-}
-
-.notes > form {
-    
-}
-
-.notes > form > textarea {
-    resize: none;
-    height: 40vh;
+    width: 95%;
+    overflow-y: hidden;
+    font-size: 1.5rem;
 }
 
 .feature {
@@ -49,7 +48,6 @@ h2 {
 h3 > a {
     text-decoration: none;
     color: black;
-    font-style: italic;
 }
 
 h3 > a:hover {

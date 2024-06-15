@@ -27,9 +27,9 @@
 
     <div class="notes">
         <h2>Notes</h2>
-        <form method="post" action="{% url 'add_text' project_name=project.name text_add=form.notes.value %}">
+        <form method="post" action="{% url 'add_text' project_name=project.name %}">
             {% csrf_token %}
-            {{form.notes}}
+            <textarea class="text-area">{{ project.notes }}</textarea>
             <br>
             <button type="submit">Save</button>
         </form>

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import project_form,add_project_form,feature_add
+from .forms import project_form,add_project_form,feature_add,note_add
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project,Feature
 from django.shortcuts import get_object_or_404
@@ -92,12 +92,15 @@ def delete_feature(request, project_name,feature_id):
 
     return redirect('projects', project_name=project_name)
 
-def text_add(request,project_name):
-    project = get_object_or_404(Project, name = project_name)
+def text_add(request, project_name):
+    project = get_object_or_404(Project, name=project_name)
 
     if request.method == 'POST':
-        project.notes.add(text)
-        project.save()
+        new_notes = request.POST.get('notes', '') 
+        project.notes = new_notes  
+        project.save()  
+
+        return redirect('projects', project_name=project_name)
 
     return redirect('projects', project_name=project_name)
     
