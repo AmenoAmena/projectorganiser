@@ -29,7 +29,7 @@
         <h2>Notes</h2>
         <form method="post" action="{% url 'add_text' project_name=project.name %}">
             {% csrf_token %}
-            <textarea class="text-area">{{ project.notes }}</textarea>
+            <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
             <br>
             <button type="submit">Save</button>
         </form>

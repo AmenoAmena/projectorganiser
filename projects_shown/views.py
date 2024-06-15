@@ -96,11 +96,10 @@ def text_add(request, project_name):
     project = get_object_or_404(Project, name=project_name)
 
     if request.method == 'POST':
-        new_notes = request.POST.get('notes', '') 
+        new_notes = request.POST.get('text-area', '') 
         project.notes = new_notes  
         project.save()  
 
         return redirect('projects', project_name=project_name)
 
     return redirect('projects', project_name=project_name)
-    
