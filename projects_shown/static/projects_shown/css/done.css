@@ -1,3 +1,9 @@
+.home-page {
+    position:absolute;
+    top:5%;
+    left:5%;
+}
+
 h2 {
     text-align: center;
 }
@@ -47,32 +53,14 @@ a:hover {
 }
 
 .done_projects {
-    width: 3%;
+    width: 10%;
     height: 5vh;
     position: absolute;
-    top: 5%;
-    left: 92%;
+    top: 3%;
+    left: 87%;
     display: flex;
     background-color:lightgray;
     justify-content: center;
     align-items: center;
-    border-radius: 50%;
-}
-
-.project-done {
-    position: absolute;
-    top: 15%;
-    left: 44%;
-    display: flex;
-    gap: 10px;
-}
-
-.project-done .p, .project-done .p_done {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightgray;
-    padding: 10px; 
-    border-radius: 5px; 
-    text-align: center; 
+    border-radius: 10%;
 }

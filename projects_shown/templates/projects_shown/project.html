@@ -80,4 +80,13 @@
 
 </div>
 
+<div class="project_finished">
+
+    <form method="post" action="{% url 'finish' project_name=project.name %}">
+        {% csrf_token %}
+        <button type="submit" class="finish_button">Project Finished</button>
+    </form>
+
+</div>
+
 {% endblock body %}

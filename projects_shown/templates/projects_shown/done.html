@@ -1,0 +1,38 @@
+{% extends "projects_shown/base.html" %}
+{% load static %}
+
+{% block title %}
+
+<title>Done Projects</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/done.css' %}">
+
+{% endblock title %}
+
+
+
+{% block body %}
+
+<div class="user">
+    <h3>{{ user.username }}</h3>
+</div>
+
+<h2>Projects</h2>
+
+<div class="done_projects">
+    <a href="{% url 'index' %}">Projects</a>
+</div>
+
+<div class="projects-all">
+    
+{% for p in projects %}
+
+
+<div class="project-card">
+    <a href="{% url 'projects' project_name=p.name %}">{{forloop.counter}} - {{p.name}}</a>
+</div>
+
+
+{% endfor %}
+
+
+{% endblock body %}

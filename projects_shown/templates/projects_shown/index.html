@@ -16,9 +16,19 @@
 <div class="user"><h3>{{user.username}}</h3></div>
 
 <h2>Projects</h2>
+<br>
 
-<div class="add">
-    <a href="{% url 'add' %}">+</a>
+<span class="project-done">
+    <div class="p">
+        <a href="{% url 'index' %}" class="is_done-button">Projects</a>
+    </div>
+    <div class="p_done">
+        <a href="{% url 'dones' %}">Done Projects</a>
+    </div>
+</span>
+
+<div class="done_projects">
+    <a href="{% url 'add' %}"><i class="fa-solid fa-plus"></i></a>
 </div>
 
 <div class="projects-all">

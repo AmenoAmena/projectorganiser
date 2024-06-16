@@ -7,17 +7,17 @@ from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
 
-# Create your views here.
 @login_required
 def index(request):
     user = request.user
     form = project_form()
-    projects = Project.objects.filter(user=request.user)
+    projects = Project.objects.filter(user=request.user,is_done=False)
     return render(request, 'projects_shown/index.html',{
         'form':form,
         'user':user,
         'projects':projects,
     })
+# Create your views here.
 
 def project_room(request,project_name):
     project = get_object_or_404(Project,name=project_name)
@@ -103,3 +103,10 @@ def text_add(request, project_name):
         return redirect('projects', project_name=project_name)
 
     return redirect('projects', project_name=project_name)
+
+def done_projects(request):
+    projects = Project.objects.filter(is_done = True)
+    return render(request,"projects_shown/done.html",{
+        'projects':projects
+        })
+
