@@ -1,3 +1,8 @@
+h1 {
+  position:absolute;
+  top: 25%;
+  left: 55%;  
+}
 .feature_show {
     border: 1px solid #000;
     width: 20%;
@@ -5,5 +10,23 @@
     overflow: auto;
     position: absolute;
     top: 35%;
-    left: 40%;
+    left: 50%;
+}
+
+.notes {
+    width: 25%;
+    height:auto;
+    overflow-y: auto;
+    position:absolute;
+    left: 10%;
+    top: 20%;
+    text-align: center;
+}
+
+.text-area {
+    resize: none;
+    height: 40vh;
+    width: 95%;
+    overflow-y: hidden;
+    font-size: 1.5rem;
 }
