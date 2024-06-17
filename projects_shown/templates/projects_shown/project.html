@@ -82,9 +82,9 @@
 
 <div class="project_finished">
 
-    <form method="post" action="{% url 'finish' project_name=project.name %}">
+    <form method="post">
         {% csrf_token %}
-        <button type="submit" class="finish_button">Project Finished</button>
+        <a href="{% url 'sure' project_name=project.name %}">Project Finished</a>
     </form>
 
 </div>
