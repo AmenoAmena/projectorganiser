@@ -115,3 +115,11 @@ def sure(request,project_name):
     return render(request,"projects_shown/sure.html",{
         'project':project
     })
+
+def finish(request,project_name):
+    project = get_object_or_404(Project,name = project_name)
+    project.is_done = True
+    project.save()
+    return redirect("dones")
+    
+    
