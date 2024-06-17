@@ -4,6 +4,7 @@
 {% block title %}
 
 <title>Are you sure</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/sure.css' %}">
 
 {% endblock title %}
 
@@ -14,7 +15,9 @@
 <h2>Are you sure</h2>
 
 <form method="post">
-    <a href="{% url 'finish' project_name=project.name%}">Yes</a>
+    <a href="{% url 'finish' project_name=project.name%}" class="sure">Yes</a>
 </form>
+
+<a href="{% url 'index' %}" class="not-sure">No</a>
 
 {% endblock body %}  

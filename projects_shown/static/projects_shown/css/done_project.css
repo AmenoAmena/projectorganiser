@@ -1,0 +1,9 @@
+.feature_show {
+    border: 1px solid #000;
+    width: 20%;
+    height:35%;
+    overflow: auto;
+    position: absolute;
+    top: 35%;
+    left: 40%;
+}

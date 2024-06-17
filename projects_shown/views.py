@@ -6,7 +6,7 @@ from authentication.models import Project,Feature
 from django.shortcuts import get_object_or_404
 from django.urls import reverse
 
-
+# Create your views here.
 @login_required
 def index(request):
     user = request.user
@@ -17,7 +17,6 @@ def index(request):
         'user':user,
         'projects':projects,
     })
-# Create your views here.
 
 def project_room(request,project_name):
     project = get_object_or_404(Project,name=project_name)
@@ -120,6 +119,12 @@ def finish(request,project_name):
     project = get_object_or_404(Project,name = project_name)
     project.is_done = True
     project.save()
-    return redirect("dones")
-    
-    
+    return redirect("index")
+
+def done_show(request,project_name):
+    project = get_object_or_404(Project,name = project_name)
+    features_done = project.features.filter(feature_done = True)
+    return render(request,"projects_shown/done_project.html",{
+        'project':project,
+        'features':features_done,
+    })

@@ -95,3 +95,26 @@ h3 > a:hover {
     text-decoration: underline;
     color:darkgrey;   
 }
+
+.project_finished {
+    width: 75%;
+    height:10vh;
+    background-color: lightgray;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 80%;
+    left: 12%;
+}
+
+.finish-a {
+    text-decoration: none;
+    color: black;   
+    font-size: 1.5rem;
+}
+
+.finish-a:hover {
+    text-decoration: underline;
+}

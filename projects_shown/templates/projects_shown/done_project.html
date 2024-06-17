@@ -1,0 +1,26 @@
+{% extends 'projects_shown/base.html' %}
+{% load static %}
+
+{% block title %}
+
+<title>{{project.name}} information</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/done_project.css' %}">
+
+{% endblock title %}
+
+
+{% block body %}
+
+
+<div class="feature_show">
+
+    {% for f in features.all %}
+            <div class="feature-item">
+                <h2>{{forloop.counter}}-{{f}}</h2> 
+            </div>
+    {% endfor %}
+
+</div>
+
+
+{% endblock body %}
