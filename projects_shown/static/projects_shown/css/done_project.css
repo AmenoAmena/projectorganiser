@@ -1,15 +1,17 @@
-h1 {
+#feature-h1 {
   position:absolute;
-  top: 25%;
-  left: 55%;  
+  top: 20%;
+  left: 58%;  
 }
+
 .feature_show {
+    text-align: center;
     border: 1px solid #000;
-    width: 20%;
-    height:35%;
+    width: 25%;
+    height:40%;
     overflow: auto;
     position: absolute;
-    top: 35%;
+    top: 30%;
     left: 50%;
 }
 
@@ -18,7 +20,7 @@ h1 {
     height:auto;
     overflow-y: auto;
     position:absolute;
-    left: 10%;
+    left: 20%;
     top: 20%;
     text-align: center;
 }
@@ -29,4 +31,38 @@ h1 {
     width: 95%;
     overflow-y: hidden;
     font-size: 1.5rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h3 > a {
+    text-decoration: none;
+    color: black;
+}
+
+h3 > a:hover {
+    text-decoration: underline;
+    color:darkgrey;
+}
+
+.home-page {
+    position:absolute;
+    top:5%;
+    left:5%;
+}
+
+.home-page > a {
+    text-decoration: none;
+    color: black;
+}
+
+.home-page > a:hover {
+    text-decoration: underline;
+    color:darkgrey;   
 }

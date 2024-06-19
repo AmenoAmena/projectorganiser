@@ -18,6 +18,6 @@
     <a href="{% url 'finish' project_name=project.name%}" class="sure">Yes</a>
 </form>
 
-<a href="{% url 'index' %}" class="not-sure">No</a>
+<a href="{% url 'projects' project_name=project.name %}" class="not-sure">No</a>
 
 {% endblock body %}  

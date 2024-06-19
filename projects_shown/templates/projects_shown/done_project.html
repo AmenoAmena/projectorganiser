@@ -11,7 +11,15 @@
 
 {% block body %}
 
-<h1>Features</h1>
+<h1>{{ project.name }}</h1>
+<h3><a href="{{ project.link }}">{{ project.link }}</a></h3>
+
+<div class="home-page">
+    <a href="{% url 'index' %}"><i class="fa-solid fa-house"></i></a>
+</div>
+
+
+<h1 id="feature-h1">Features</h1>
 <div class="feature_show">
     {% for f in features.all %}
             <div class="feature-item">
@@ -23,12 +31,7 @@
 
 <div class="notes">
     <h2>Notes</h2>
-    <form method="post" action="{% url 'add_text' project_name=project.name %}">
-        {% csrf_token %}
-        <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
-        <br>
-        <button type="submit">Save</button>
-    </form>
+        <textarea class="text-area" name="text-area" readonly>{{ project.notes }}</textarea>
 </div>
 
 
