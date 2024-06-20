@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'authentication',
     'projects_shown',
+    'show_project',
 ]
 
 MIDDLEWARE = [
