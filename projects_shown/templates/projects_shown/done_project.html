@@ -12,7 +12,8 @@
 {% block body %}
 
 <h1>{{ project.name }}</h1>
-<h3><a href="{{ project.link }}">{{ project.link }}</a></h3>
+<h2><a href="{{ project.link }}">Link: {{ project.link }}</a></h2>
+<h3>Token: {{ project.token }}</h3>
 
 <div class="home-page">
     <a href="{% url 'index' %}"><i class="fa-solid fa-house"></i></a>

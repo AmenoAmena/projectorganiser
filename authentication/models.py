@@ -7,6 +7,7 @@ class TokenField(models.CharField):
 
     def __init__(self, *args, **kwargs):
         kwargs['max_length'] = 19
+        kwargs['default'] = "XXXX-XXXX-XXXX-XXXX"
         super().__init__(*args, **kwargs)
         self.validators.append(self.validate_format)
 
