@@ -25,6 +25,7 @@ class TokenField(models.CharField):
         self.random_token = self.generate_token()
         kwargs['max_length'] = 19
         kwargs['default'] = self.random_token
+        kwargs['unique'] = True
         super().__init__(*args, **kwargs)
         self.validators.append(self.validate_format)
     
@@ -51,7 +52,7 @@ class Feature(models.Model):
 
 
 class Project(models.Model):
-    name = models.CharField(max_length=80,unique=True)
+    name = models.CharField(max_length=80)
     link = models.URLField()
     notes = models.TextField(blank=True)
     features = models.ManyToManyField(Feature, blank=True)
