@@ -1,15 +1,84 @@
 {% extends 'show_project/base.html' %}
+{% load static %}
 
 {% block title %}
 
-<title>Project</title>
+<title>project</title>
+<link rel="stylesheet" href="{% static 'projects_shown/css/project.css' %}">
 
 {% endblock title %}
 
 
 
+
+
 {% block body %}
 
-{{ project.name }}
+<h2>{{project.name}}</h2>
+
+    <div class="link">
+        <h3>Link: <a href="{{ project.link }}" target="_blank">Link: {{project.link}}</a>
+    </h3>
+    </div>
+
+    <div class="notes">
+        <h2>Notes</h2>
+        <form>
+            <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
+        </form>
+    </div>
+
+
+    <div class="feature">
+        <h2>Features</h2>
+        <form>
+            {{ feature_form.feature_add }}
+        </form>
+    </div>
+
+</form>
+
+<div class="feature_show">
+
+    {% for f in features.all %}
+        {% if f.feature_done == False %}
+            <div class="feature-item">
+                <h2>{{forloop.counter}}-{{f}}</h2> 
+                
+                <form method="post" action="{% url 'feature_done' project_name=project.name feature_id=f.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="done-btn">+</button>
+                </form>
+
+                <form method="post" action="{% url 'feature_delete' project_name=project.name feature_id=f.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
+                </form>
+            </div>
+        {% endif %}
+    {% endfor %}
+
+</div>
+
+<div class="done_f">        
+    <h2>Done Features</h2>
+</div>
+
+<div class="done_feature">
+
+    {% for df in done_features %}
+        <h2>{{ forloop.counter }}-{{df}}</h2>
+    {% endfor %}
+
+</div>
+
+<div class="project_finished">
+
+    <form method="post">
+        {% csrf_token %}
+        <a href="{% url 'sure' project_name=project.name %}" class="finish-a">Project Finished</a>
+    </form>
+
+</div>
 
 {% endblock body %}
