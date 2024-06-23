@@ -8,6 +8,12 @@
 
 {% block body %}
 
-{{ form.as_p }}
+<form method="post" action="{% url 'show_project' project_token=form.value %}">
+    
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Search</button>
+
+</form>
 
 {% endblock body %}
