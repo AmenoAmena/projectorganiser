@@ -44,16 +44,6 @@
         {% if f.feature_done == False %}
             <div class="feature-item">
                 <h2>{{forloop.counter}}-{{f}}</h2> 
-                
-                <form method="post" action="{% url 'feature_done' project_name=project.name feature_id=f.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="done-btn">+</button>
-                </form>
-
-                <form method="post" action="{% url 'feature_delete' project_name=project.name feature_id=f.id %}">
-                    {% csrf_token %}
-                    <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
-                </form>
             </div>
         {% endif %}
     {% endfor %}
