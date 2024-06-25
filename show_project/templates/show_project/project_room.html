@@ -17,14 +17,14 @@
 <h2>{{project.name}}</h2>
 
     <div class="link">
-        <h3>Link: <a href="{{ project.link }}" target="_blank">Link: {{project.link}}</a>
+        <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
     </h3>
     </div>
 
     <div class="notes">
         <h2>Notes</h2>
         <form>
-            <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
+            <textarea class="text-area" name="text-area" readonly>{{ project.notes }}</textarea>
         </form>
     </div>
 
@@ -73,12 +73,11 @@
 </div>
 
 <div class="project_finished">
-
-    <form method="post">
-        {% csrf_token %}
-        <a href="{% url 'sure' project_name=project.name %}" class="finish-a">Project Finished</a>
-    </form>
-
+    {% if project.is_done %}
+        <h2>Project Finished</h2>
+    {% else %}
+        <h2>Project is not finished</h2>
+    {% endif %}
 </div>
 
 {% endblock body %}

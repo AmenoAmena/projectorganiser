@@ -1,4 +1,4 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
 from django.http import HttpResponse
 from .forms import SeeForm
 from authentication.models import Project
@@ -6,6 +6,11 @@ from authentication.models import Project
 # Create your views here.
 def index(request):
     form = SeeForm()
+    if request.method == 'POST':
+        form = SeeForm(request.POST)
+        if form.is_valid():
+            token = form.cleaned_data['token']
+            return redirect('show_project', project_token=token) 
     return render(request, 'show_project/index.html',{
         'form':form
     })
