@@ -20,15 +20,15 @@
 
 <span class="project-done">
     <div class="p">
-        <a href="{% url 'index' %}" class="is_done-button">Projects</a>
+        <a href="{% url 'projects_shown:index' %}" class="is_done-button">Projects</a>
     </div>
     <div class="p_done">
-        <a href="{% url 'dones' %}">Done Projects</a>
+        <a href="{% url 'projects_shown:dones' %}">Done Projects</a>
     </div>
 </span>
 
 <div class="done_projects">
-    <a href="{% url 'add' %}"><i class="fa-solid fa-plus"></i></a>
+    <a href="{% url 'projects_shown:add' %}"><i class="fa-solid fa-plus"></i></a>
 </div>
 
 <div class="projects-all">
@@ -37,7 +37,7 @@
 
 
 <div class="project-card">
-    <a href="{% url 'projects' project_name=p.name %}">{{forloop.counter}} - {{p.name}}</a>
+    <a href="{% url 'projects_shown:projects' project_name=p.name %}">{{forloop.counter}} - {{p.name}}</a>
 </div>
 
 
@@ -46,7 +46,7 @@
 </div>
 
 <div class="logout">
-    <a href="{% url 'logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
+    <a href="{% url 'authentication:logout' %}"><i class="fa-solid fa-right-from-bracket fa-2x"></i></a>
 </div>
 
 {% endblock body %}

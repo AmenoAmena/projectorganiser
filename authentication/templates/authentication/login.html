@@ -16,6 +16,8 @@
     <input type="password" placeholder="Password" id="Password" name="Password" required autocomplete="off">
     <button type="submit">Login</button>
 </form>
+<a href="{% url 'authentication:register' %}">Dont have account? Register</a>
+<br>
 <a href="{% url 'show_project:index_show' %}">See project with token</a>
 
 {% endblock %}

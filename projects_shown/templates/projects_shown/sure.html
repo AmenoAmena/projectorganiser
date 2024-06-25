@@ -15,9 +15,9 @@
 <h2>Are you sure</h2>
 
 <form method="post">
-    <a href="{% url 'finish' project_name=project.name%}" class="sure">Yes</a>
+    <a href="{% url 'projects_shown:finish' project_name=project.name%}" class="sure">Yes</a>
 </form>
 
-<a href="{% url 'projects' project_name=project.name %}" class="not-sure">No</a>
+<a href="{% url 'projects_shown:projects' project_name=project.name %}" class="not-sure">No</a>
 
 {% endblock body %}  
