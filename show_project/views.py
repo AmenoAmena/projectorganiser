@@ -16,8 +16,11 @@ def index(request):
     })
 
 def project_room(request,project_token):
-    project = get_object_or_404(Project, token=project_token)
+    project = get_object_or_404(Project,token=project_token)
+    features = project.features.filter(feature_done = False)
+    features_done = project.features.filter(feature_done = True)
     return render(request, 'show_project/project_room.html',{
-        'project':project
+        'project':project,
+        'features':features,
+        'done_features':features_done,
     })
-    
