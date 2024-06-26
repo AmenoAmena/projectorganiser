@@ -11,7 +11,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('index')
+            return redirect('projects_shown:index')
         else:
             messages.error(request,"Invalid username or password")
 
@@ -24,7 +24,7 @@ def register_view(request):
             user = form.save()
             username = form.cleaned_data['username']
             password = form.cleaned_data['password1']
-            return redirect('login')
+            return redirect('authentication:login')
     else:
         form = SignUpForm()
     return render(request,"authentication/register.html",{
@@ -33,4 +33,4 @@ def register_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect("login")
+    return redirect("authentication:login")

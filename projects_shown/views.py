@@ -47,7 +47,7 @@ def add_project(request):
             project = form.save(commit=False)
             project.user = user
             project.save()
-            return redirect('index')
+            return redirect('projects_shown:index')
     return render(request, 'projects_shown/add.html',{
         'form':form,
     })
@@ -66,11 +66,11 @@ def add_feature(request, project_name,feature):
             new_feature.feature_add = feature_name
             new_feature.save()
             project.features.add(new_feature)
-            return redirect('projects', project_name=project_name)
+            return redirect('projects_shown:projects', project_name=project_name)
     else:
         feature_form = feature_add()
 
-    return redirect('projects', project_name=project_name)
+    return redirect('projects_shown:projects', project_name=project_name)
 
 def done_feature(request,project_name,feature_id):
     project = get_object_or_404(Project, name=project_name)
@@ -80,7 +80,7 @@ def done_feature(request,project_name,feature_id):
         feature.feature_done = True
         feature.save()
 
-    return redirect('projects', project_name=project_name)
+    return redirect('projects_shown:projects', project_name=project_name)
 
 def delete_feature(request, project_name,feature_id):
     project = get_object_or_404(Project, name = project_name)
@@ -89,7 +89,7 @@ def delete_feature(request, project_name,feature_id):
     if request.method == 'POST':
         feature.delete()    
 
-    return redirect('projects', project_name=project_name)
+    return redirect('projects_shown:projects', project_name=project_name)
 
 def text_add(request, project_name):
     project = get_object_or_404(Project, name=project_name)
@@ -99,9 +99,9 @@ def text_add(request, project_name):
         project.notes = new_notes  
         project.save()  
 
-        return redirect('projects', project_name=project_name)
+        return redirect('projects_shown:projects', project_name=project_name)
 
-    return redirect('projects', project_name=project_name)
+    return redirect('projects_shown:projects', project_name=project_name)
 
 def done_projects(request):
     projects = Project.objects.filter(is_done = True)
@@ -119,7 +119,7 @@ def finish(request,project_name):
     project = get_object_or_404(Project,name = project_name)
     project.is_done = True
     project.save()
-    return redirect("index")
+    return redirect("projects_shown:index")
 
 def done_show(request,project_name):
     project = get_object_or_404(Project,name = project_name)

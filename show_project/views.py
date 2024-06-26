@@ -10,7 +10,7 @@ def index(request):
         form = SeeForm(request.POST)
         if form.is_valid():
             token = form.cleaned_data['token']
-            return redirect('show_project', project_token=token) 
+            return redirect('show_project:show_project', project_token=token) 
     return render(request, 'show_project/index.html',{
         'form':form
     })
