@@ -25,7 +25,7 @@ class add_project_form(forms.ModelForm):
         widgets = {
             'name':forms.TextInput(attrs={'autocomplete':'off'}),
             'link':forms.TextInput(attrs={'autocomplete':'off'}),
-            'token':forms.TextInput(attrs={'autocomplete':'off'})
+            'token':forms.TextInput(attrs={'autocomplete':'off','placeholder':'XXXX-XXXX-XXXX-XXXX'})
         }
 
 class feature_add(forms.ModelForm):
