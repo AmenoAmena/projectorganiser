@@ -1,73 +1,87 @@
-{% extends 'show_project/base.html' %}
+{% extends 'projects_shown/base.html' %}
 {% load static %}
 
 {% block title %}
-
-<title>project</title>
+<title>Project</title>
 <link rel="stylesheet" href="{% static 'projects_shown/css/project.css' %}">
-
 {% endblock title %}
 
-
-
-
-
 {% block body %}
-
-<h2>{{project.name}}</h2>
-
-    <div class="link">
-        <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
-    </h3>
+<div class="container">
+    <div class="home-page">
+        <a href="{% url 'projects_shown:index' %}"><i class="fa-solid fa-house fa-2x"></i></a>
     </div>
 
-    <div class="notes">
-        <h2>Notes</h2>
-        <form>
-            <textarea class="text-area" name="text-area" readonly>{{ project.notes }}</textarea>
-        </form>
+    <div class="project-header">
+        <h2>{{ project.name }}</h2>
+        <br>
+        <h3>Token: {{ project.token }}</h3>
+        <div class="link">
+            <h3>Link: <a href="{{ project.link }}" target="_blank">{{ project.link }}</a></h3>
+        </div>
     </div>
 
-
-    <div class="feature">
-        <h2>Features</h2>
-        <form>
-            {{ feature_form.feature_add }}
-        </form>
-    </div>
-
-</form>
-
-<div class="feature_show">
-
-    {% for f in features.all %}
-        {% if f.feature_done == False %}
-            <div class="feature-item">
-                <h2>{{forloop.counter}}-{{f}}</h2> 
+    <div class="main-content">
+        <div class="notes">
+            <h2>Notes</h2>
+            <br>
+            <form method="post">
+                {% csrf_token %}
+                <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
+                <br>
+                <br>
+                <div class="button-container">
+                </div>
+            </form>
+        </div>
+        
+        <div class="features">
+            <h2>Features</h2>
+            <div class="adding">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ feature_form.feature_add }}
+                </form>
             </div>
-        {% endif %}
-    {% endfor %}
+            
+            <div class="feature-list">
+                {% for f in features.all %}
+                {% if not f.feature_done %}
+                <div class="feature-item">
+                    <h3>{{ forloop.counter }}-{{ f }}</h3>
+                    <div class="utils">
+                        <form method="post">
+                            {% csrf_token %}
+                        </form>
+                        <form method="post">    
+                            {% csrf_token %}
+                        </form>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
 
+        <div class="done-features">
+            <h2>Done Features</h2>
+            <div class="done-feature-list">
+                {% for df in done_features %}
+                <h3>{{ forloop.counter }}-{{ df }}</h3>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="project-finished">
+        <form method="post">
+            {% csrf_token %}
+            {% if project.is_done %}
+                <h2>This project is finished</h2>
+            {% else %}
+                <h2>This project is not finished</h2>
+            {% endif %}
+            </form>
+    </div>
 </div>
-
-<div class="done_f">        
-    <h2>Done Features</h2>
-</div>
-
-<div class="done_feature">
-
-    {% for df in done_features %}
-        <h2>{{ forloop.counter }}-{{df}}</h2>
-    {% endfor %}
-
-</div>
-
-<div class="project_finished">
-    {% if project.is_done %}
-        <h2>This project is finished</h2>
-    {% else %}
-        <h2>This project is not finished</h2>
-    {% endif %}
-</div>
-
 {% endblock body %}

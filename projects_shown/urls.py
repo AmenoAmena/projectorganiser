@@ -5,7 +5,6 @@ app_name = 'projects_shown'
 
 urlpatterns = [
     path("", views.index, name='index'),
-    path("profile/", views.profile, name='profile'),
     path("add/", views.add_project, name='add'),
     path("dones/", views.done_projects, name='dones'),
     path("project/<str:project_name>/sure/done/",views.finish,name="finish"),

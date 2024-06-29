@@ -61,7 +61,7 @@ a:hover {
     border: 1px solid #ddd;
     border-radius: 8px;
     background-color: #f9f9f9;
-    max-height: 600px; /* Updated height */
+    max-height: 55vh; /* Updated height */
     overflow: auto;
 }
 
