@@ -15,8 +15,7 @@ def index(request):
                 project = Project.objects.get(token=token)
                 return redirect('show_project:show_project', project_token=token)
             except Project.DoesNotExist:
-                form.add_error('token', 'Invalid project token')
-                form = SeeForm()  # Reset the form
+                form = SeeForm() 
     return render(request, 'show_project/index.html', {
         'form': form
     })
