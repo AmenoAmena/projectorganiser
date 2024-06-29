@@ -2,39 +2,32 @@
 {% load static %}
 
 {% block title %}
-
-<title>project</title>
+<title>Project</title>
 <link rel="stylesheet" href="{% static 'projects_shown/css/project.css' %}">
-
 {% endblock title %}
 
-
-
-
 {% block body %}
+<div class="container">
+    <div class="home-page">
+        <a href="{% url 'projects_shown:index' %}"><i class="fa-solid fa-house"></i></a>
+    </div>
 
-<div class="home-page">
-    <a href="{% url 'projects_shown:index' %}"><i class="fa-solid fa-house"></i></a>
-</div>
-
-<h2>{{project.name}}</h2>
-<h3>Token: {{ project.token }}</h3>
+    <h2>{{ project.name }}</h2>
+    <h3>Token: {{ project.token }}</h3>
 
     <div class="link">
-        <h3>Link: <a href="{{ project.link }}" target="_blank">{{project.link}}</a>
-    </h3>
+        <h3>Link: <a href="{{ project.link }}" target="_blank">{{ project.link }}</a></h3>
     </div>
 
     <div class="notes">
         <h2>Notes</h2>
         <form method="post" action="{% url 'projects_shown:add_text' project_name=project.name %}">
             {% csrf_token %}
-            <textarea class="text-area" name="text-area"    >{{ project.notes }}</textarea>
+            <textarea class="text-area" name="text-area">{{ project.notes }}</textarea>
             <br>
             <button type="submit">Save</button>
         </form>
     </div>
-
 
     <div class="feature">
         <h2>Features</h2>
@@ -45,15 +38,14 @@
         </form>
     </div>
 
-</form>
-
-<div class="feature_show">
-
-    {% for f in features.all %}
-        {% if f.feature_done == False %}
+    <div class="feature-list">
+        <h2>Features List</h2>
+        <div class="feature-items">
+            {% for f in features.all %}
+            {% if not f.feature_done %}
             <div class="feature-item">
-                <h2>{{forloop.counter}}-{{f}}</h2> 
-                
+                <h3>{{ forloop.counter }}-{{ f }}</h3>
+
                 <form method="post" action="{% url 'projects_shown:feature_done' project_name=project.name feature_id=f.id %}">
                     {% csrf_token %}
                     <button type="submit" class="done-btn">+</button>
@@ -64,30 +56,25 @@
                     <button type="submit" class="delete-btn"><i class="fa-solid fa-trash"></i></button>
                 </form>
             </div>
-        {% endif %}
-    {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
 
+    <div class="done-feature-list">
+        <h2>Done Features</h2>
+        <div class="done-feature-items">
+            {% for df in done_features %}
+            <h3>{{ forloop.counter }}-{{ df }}</h3>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="project-finished">
+        <form method="post">
+            {% csrf_token %}
+            <a href="{% url 'projects_shown:sure' project_name=project.name %}" class="finish-a">Project Finished</a>
+        </form>
+    </div>
 </div>
-
-<div class="done_f">        
-    <h2>Done Features</h2>
-</div>
-
-<div class="done_feature">
-
-    {% for df in done_features %}
-        <h2>{{ forloop.counter }}-{{df}}</h2>
-    {% endfor %}
-
-</div>
-
-<div class="project_finished">
-
-    <form method="post">
-        {% csrf_token %}
-        <a href="{% url 'projects_shown:sure' project_name=project.name %}" class="finish-a">Project Finished</a>
-    </form>
-
-</div>
-
 {% endblock body %}
