@@ -43,13 +43,11 @@ body {
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* Button hover effect */
 .login-form button:hover, .register-form button:hover {
     background-color: #f9f9f9;
     color: gray;
 }
 
-/* Styles for links */
 .links {
     margin-top: 10px;
 }
