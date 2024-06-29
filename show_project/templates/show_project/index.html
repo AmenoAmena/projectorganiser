@@ -1,23 +1,25 @@
 {% extends "show_project/base.html" %}
+{% load static %}
 
 {% block title %}
-
 <title>Token</title>
-
+<link rel="stylesheet" href="{% static 'show_project/css/index.css' %}">
 {% endblock title %}
 
 {% block body %}
 
-{% if message %}
-<p>{{ message }}</p>
-{% endif %}
-
-<form method="post">
-    
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Search</button>
-
-</form>
-
+<div class="token-in">
+    <h2>Enter Token</h2>
+    <div class="token-container">
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <form method="post" class="token-form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Search</button>
+        </form>
+        <a href="{% url 'authentication:login' %}">Have an account? Login</a>
+    </div>
+</div>
 {% endblock body %}

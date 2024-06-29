@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-.login-container {
+.token-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 8px;
@@ -18,16 +18,7 @@ body {
     width: 100%;
 }
 
-.login-form input {
-    width: calc(100% - 20px);
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-}
-
-.login-form button {
+.token-form button {
     width: 100%;
     padding: 10px;
     background-color: #333;
@@ -39,16 +30,16 @@ body {
     transition: background-color 1s ease, color 1s ease;
 }
 
-.login-form button:hover {
+.token-form button:hover {
     background-color: #f9f9f9;
     color: gray;
 }
 
-.links {
-    margin-top: 10px;
+h2 {
+    text-align: center;
 }
 
-.links a {
+a {
     color: #333;
     text-decoration: none;
     display: block;
@@ -56,11 +47,7 @@ body {
     font-size: 14px;
 }
 
-.links a:hover {
+a:hover {
     text-decoration: underline;
     color: gray;
-}
-
-h2 {
-    text-align: center;
 }
