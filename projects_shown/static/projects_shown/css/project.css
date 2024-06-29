@@ -169,6 +169,12 @@ a:hover {
     transition: background-color 0.3s ease; /* Smooth transition for hover effect */
 }
 
+.done-btn-small:hover {
+    background-color: #f9f9f9; /* Darker green on hover */
+    color: gray;
+}
+
+
 .delete-btn {
     background-color: darkgray; /* Red background for delete button */
 }

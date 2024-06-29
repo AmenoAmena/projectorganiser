@@ -22,9 +22,9 @@ class TokenField(models.CharField):
     
 
     def __init__(self, *args, **kwargs):
-        self.random_token = self.generate_token()
         kwargs['max_length'] = 20
         kwargs['unique'] = True
+        kwargs['default'] = self.generate_token()
         super().__init__(*args, **kwargs)
         self.validators.append(self.validate_format)
     
@@ -61,4 +61,9 @@ class Project(models.Model):
 
     def __str__(self):
         return self.name
+
+    def save(self, *args, **kwargs):
+        if not self.token:
+            self.token = generate_token()
+        super().save(*args, **kwargs)
 
