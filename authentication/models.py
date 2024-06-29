@@ -23,7 +23,7 @@ class TokenField(models.CharField):
 
     def __init__(self, *args, **kwargs):
         self.random_token = self.generate_token()
-        kwargs['max_length'] = 19
+        kwargs['max_length'] = 20
         kwargs['unique'] = True
         super().__init__(*args, **kwargs)
         self.validators.append(self.validate_format)
