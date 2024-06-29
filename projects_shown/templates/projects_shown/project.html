@@ -80,7 +80,7 @@
     <div class="project-finished">
         <form method="post">
             {% csrf_token %}
-            <a href="{% url 'projects_shown:sure' project_name=project.name %}" class="finish-a">Project Finished</a>
+            <a href="{% url 'projects_shown:sure' project_name=project.name %}" class="finish-a">Finish Project</a>
         </form>
     </div>
 </div>

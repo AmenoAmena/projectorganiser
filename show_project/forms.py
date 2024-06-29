@@ -7,6 +7,7 @@ class TokenField(forms.CharField):
         kwargs['max_length'] = 19
         super().__init__(*args, **kwargs)
         self.validators.append(self.validate_format)
+        self.widget.attrs.update({'class': 'token-field'})
 
     def validate_format(self, value):
         if len(value) != 19:
