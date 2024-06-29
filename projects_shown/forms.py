@@ -15,7 +15,7 @@ class project_form(forms.ModelForm):
 class add_project_form(forms.ModelForm):
     class Meta:
         model = Project
-        fields = {"name","link",'token'}
+        fields = ("name","link",'token')
         
         labels = {
             'name':'Project Name',
@@ -25,7 +25,7 @@ class add_project_form(forms.ModelForm):
         widgets = {
             'name':forms.TextInput(attrs={'autocomplete':'off'}),
             'link':forms.TextInput(attrs={'autocomplete':'off'}),
-            'token':forms.TextInput(attrs={'autocomplete':'off','placeholder':'XXXX-XXXX-XXXX-XXXX'})
+            'token':forms.TextInput(attrs={'autocomplete':'off','placeholder':'XXXX-XXXX-XXXX-XXXX','id':'token-form'})
         }
 
 class feature_add(forms.ModelForm):
