@@ -1,4 +1,3 @@
-/* Global styles */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -9,7 +8,6 @@ body {
     margin: 0;
 }
 
-/* Container styles for login and register forms */
 .login-container, .register-container {
     background-color: #ffffff;
     padding: 20px;
@@ -20,7 +18,6 @@ body {
     width: 100%;
 }
 
-/* Input field styles for both login and register forms */
 .login-form input, .register-form input {
     width: calc(100% - 20px);
     padding: 10px;
@@ -30,7 +27,6 @@ body {
     background-color: #f9f9f9;
 }
 
-/* Button styles for both login and register forms */
 .login-form button, .register-form button {
     width: 100%;
     padding: 10px;
