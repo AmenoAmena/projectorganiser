@@ -44,3 +44,11 @@ class note_add(forms.ModelForm):
         widgets = {
             'notes': forms.Textarea(attrs={'autocomplete':'off'}),  
         }
+
+class feature_add_detail(forms.ModelForm):
+    class Meta:
+        model = Feature
+        fields = {'feature_notes'}
+        widgets = {
+            'feature_notes': forms.TextInput(attrs={'autocomplete':'off'})
+        }

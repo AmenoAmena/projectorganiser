@@ -41,9 +41,13 @@ class TokenField(models.CharField):
 
     
 # Create your models here.
+class Feature_note(models.Model):
+    feature_note = models.CharField(max_length=256,blank=True,null=True)
+
 class Feature(models.Model):
     feature_add = models.CharField(max_length=80)
     feature_done = models.BooleanField(default=False)
+    feature_notes = models.ManyToManyField(Feature_note,blank=True)
 
     def __str__(self):
         return self.feature_add

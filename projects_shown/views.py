@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .forms import project_form,add_project_form,feature_add,note_add
+from .forms import project_form,add_project_form,feature_add,note_add,feature_add_detail
 from django.contrib.auth.decorators import login_required
 from authentication.models import Project,Feature
 from django.shortcuts import get_object_or_404
@@ -136,7 +136,9 @@ def done_show(request,project_name):
 def feature_page(request,project_name,feature_id):
     feature = get_object_or_404(Feature,id=feature_id)
     project = get_object_or_404(Project,name=project_name)
+    form = feature_add_detail()
     return render(request,"projects_shown/feature_page.html",{
         'feature':feature,
         'project':project,
+        'form':form
     })
