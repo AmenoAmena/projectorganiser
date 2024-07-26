@@ -50,5 +50,8 @@ class feature_add_detail(forms.ModelForm):
         model = Feature
         fields = {'feature_notes'}
         widgets = {
-            'feature_notes': forms.TextInput(attrs={'autocomplete':'off'})
+            'feature_notes': forms.TextInput(attrs={
+                'autocomplete':'off',
+                'class':'feature_notes'
+            })
         }

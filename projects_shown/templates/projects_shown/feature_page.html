@@ -1,20 +1,15 @@
-{% extends "projects_shown/base.html" %}
-
-{% block title %}
+{% extends "projects_shown/base.html" %} {% block title %}
 
 <title>Feature page</title>
 
-{% endblock title %}
-
-
+{% endblock title %} 
 
 {% block body %}
 
-
-<form>
-{{ form.as_p }}
-<button type="submit">+</button>
+<form method="post">
+    <label for="feature_notes">Feature note add:&nbsp;</label>
+    {{ form.feature_notes }}
+    <button type="submit">+</button>
 </form>
-
 
 {% endblock body %}

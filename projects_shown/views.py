@@ -58,7 +58,6 @@ def add_feature(request, project_name,feature):
         Feature_form = feature_add(request.POST)
         if Feature_form.is_valid():
             feature_name = Feature_form.cleaned_data['feature_add']
-            print(feature_name)
             new_feature = Feature_form.save(commit= False)
             new_feature.feature_add = feature_name
             new_feature.save()
@@ -142,3 +141,11 @@ def feature_page(request,project_name,feature_id):
         'project':project,
         'form':form
     })
+
+
+
+#feature_name = Feature_form.cleaned_data['feature_add']
+#new_feature = Feature_form.save(commit= False)
+#new_feature.feature_add = feature_name
+#new_feature.save()
+#project.features.add(new_feature)
