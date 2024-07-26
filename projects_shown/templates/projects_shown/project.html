@@ -50,7 +50,7 @@
                 {% for f in features.all %}
                 {% if not f.feature_done %}
                 <div class="feature-item">
-                    <h3>{{ forloop.counter }}-{{ f }}</h3>
+                    <h3><a href="{% url 'projects_shown:feature_page' project_name=project.name feature_id=f.id %}">{{ forloop.counter }}-{{ f }}</a></h3>
                     <div class="utils">
                         <form method="post" action="{% url 'projects_shown:feature_done' project_name=project.name feature_id=f.id %}">
                             {% csrf_token %}
@@ -68,7 +68,7 @@
         </div>
 
         <div class="done-features">
-            <h2>Done Features</h2>
+            <h2 style="text-align: center;">Done Features</h2>
             <div class="done-feature-list">
                 {% for df in done_features %}
                 <h3>{{ forloop.counter }}-{{ df }}</h3>

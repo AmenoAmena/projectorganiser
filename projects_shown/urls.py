@@ -15,4 +15,5 @@ urlpatterns = [
     path("project/<str:project_name>/", views.text_add, name='add_text'),  
     path("project/<str:project_name>", views.project_room, name='projects'),
     path("done/<str:project_name>",views.done_show,name='done_show'),
+    path("project/<str:project_name>/features/page/<int:feature_id>",views.feature_page,name="feature_page"),
 ]

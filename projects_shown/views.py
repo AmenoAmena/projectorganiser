@@ -132,3 +132,11 @@ def done_show(request,project_name):
         'project':project,
         'features':features_done,
     })
+
+def feature_page(request,project_name,feature_id):
+    feature = get_object_or_404(Feature,id=feature_id)
+    project = get_object_or_404(Project,name=project_name)
+    return render(request,"projects_shown/feature_page.html",{
+        'feature':feature,
+        'project':project,
+    })
